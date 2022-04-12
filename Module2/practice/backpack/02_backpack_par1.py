@@ -1,22 +1,26 @@
 class Item:
-    ...
-    # TODO: сюда копируем реализацию класса из предыдущего задания
+    def __init__(self, n, w, c):
+        self.name = n  # Название предмета
+        self.weight = w  # Вес предмета, в килограммах
+        self.cost = c  # Цена предмета, пусть будет, в рублях
 
+    def show(self):
+        return f'{self.name} вес: {self.weight} цена: {self.cost}'
 
 class BackPack:  # рюкзак
     def __init__(self):
         self.items = []  # Предметы, которые хранятся в рюкзаке
 
     def add_item(self, item: Item):
-        """
-        Добавляет предмет(item) в этот рюкзак
-        """
+        self.items.append(item)
         # TODO: реализуйте метод
 
     def show_items(self):
-        """
-        Вывод все предметы, содержащиеся в рюкзаке в виде нумерованного списка
-        """
+        i = 1
+        for item in self.items:
+            print(i, item.show())
+            i += 1
+            
         # TODO: реализуйте метод
 
 
