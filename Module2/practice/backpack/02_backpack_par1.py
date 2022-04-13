@@ -1,35 +1,27 @@
-class Item:
-    ...
-    # TODO: сюда копируем реализацию класса из предыдущего задания
+class Author:
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+
+    def short_name(self):
+        return f'{self.name[0]}. {self.surname}'
 
 
-class BackPack:  # рюкзак
-    def __init__(self):
-        self.items = []  # Предметы, которые хранятся в рюкзаке
-
-    def add_item(self, item: Item):
-        """
-        Добавляет предмет(item) в этот рюкзак
-        """
-        # TODO: реализуйте метод
-
-    def show_items(self):
-        """
-        Вывод все предметы, содержащиеся в рюкзаке в виде нумерованного списка
-        """
-        # TODO: реализуйте метод
 
 
-# Создаем предметы
-item1 = Item("Гиря", 25, 500)
-item2 = Item("Арбуз", 4, 300)
+class Book:
+    def __init__(self, name, author: Author, year, pages):
+        self.name = name
+        self.author = author
+        self.year = year
+        self.pages = pages
+    def to_str (self):
+        return f'"{self.name}" {Author.short_name(author)}'
 
-# Создаем пустой рюкзак
-backpack = BackPack()
+author = Author("Михаил", "Булгаков")
+book = Book("Вьюга", author, 1926, 25)
 
-# Добавляем пару предметов в рюкзак
-backpack.add_item(item1)
-backpack.add_item(item2)
 
-# Выводим все предметы в рюкзаке
-backpack.show_items()
+
+print(book.to_str())
+print(author.short_name())
